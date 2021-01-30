@@ -30,80 +30,84 @@
     <!--Booking Section-->
     <main class="main-content container">
         <div class="booking-form">
-            <h3>Booking Flights</h3>
-            <div class="input-group">
-                <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
-            </div>
-            <div class="input-group">
-                <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
-            </div>
-            <div class="inputs">
+            <div class="container-main">
+                <h3>Booking Flights</h3>
                 <div class="input-group">
-                    <label" for="">Departure</label>
+                    <label for="">Flying From</label>
+                    <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                </div>
+                <div class="input-group">
+                    <label for="">Flying To</label>
+                    <input class="inp-style" type="text" name="" placeholder="New York, United States">
+                </div>
+                <div class="inputs">
+                    <div class="input-group">
+                        <label" for="">Departure</label>
+                            <input class="inp-style" type="date" name="">
+                    </div>
+                    <div class="input-group">
+                        <label for="">Return</label>
                         <input class="inp-style" type="date" name="">
-                </div>
-                <div class="input-group">
-                    <label for="">Return</label>
-                    <input class="inp-style" type="date" name="">
-                </div>
-            </div>
-            <div class="input-group f-class">
-                <div>
-                    <label for="">First Class ($150)</label>
-                    <input id="inputFirstClass" type="text" class="form-control text-center" value="1">
-                </div>
-                <div class="plus-minus-btn">
-                    <p><span><button id="minusFirstClass" class="btn btn-default"><i
-                                    class="fas fa-minus"></i></button></span> <span><button id="plusFirstClass"
-                                class="btn btn-default"><i class="fas fa-plus"></i></button></span></p>
-
-                </div>
-            </div>
-
-            <div class="input-group f-class">
-                <div>
-                    <label for="">Economy ($100)</label>
-                    <input id="inputEconomy" type="text" class="form-control text-center" value="1">
-                </div>
-                <div class="plus-minus-btn">
-                    <p><span><button id="minusEconomy" class="btn btn-default"><i
-                                    class="fas fa-minus"></i></button></span> <span><button id="plusEconomy"
-                                class="btn btn-default"><i class="fas fa-plus"></i></button></span></p>
-                </div>
-            </div>
-            <div class="calculations">
-                <div class="amount">
-                    <div class="left">
-                        <p>Subtotal</p>
                     </div>
-                    <div class="right">
-                        <p>$ <span id="subTotal">250</span></p>
+                </div>
+                <div class="input-group f-class">
+                    <div>
+                        <label for="">First Class ($150)</label>
+                        <input id="inputFirstClass" type="text" class="form-control text-center" value="1">
+                    </div>
+                    <div class="plus-minus-btn">
+                        <p><span><button id="minusFirstClass" class="btn btn-default"><i
+                                        class="fas fa-minus"></i></button></span> <span><button id="plusFirstClass"
+                                    class="btn btn-default"><i class="fas fa-plus"></i></button></span></p>
+
                     </div>
                 </div>
 
-                <div class="amount">
-                    <div class="left">
-                        <p>Charge 10% VAT</p>
+                <div class="input-group f-class">
+                    <div>
+                        <label for="">Economy ($100)</label>
+                        <input id="inputEconomy" type="text" class="form-control text-center" value="1">
                     </div>
-                    <div class="right">
-                        <p>$ <span id="tax">25</span> </p>
-                    </div>
-                </div>
-                <hr>
-                <div class="amount">
-                    <div class="left">
-                        <h4>Total</h4>
-                    </div>
-                    <div class="right">
-                        <p>$<span id="finalTotal">275</span></p>
+                    <div class="plus-minus-btn">
+                        <p><span><button id="minusEconomy" class="btn btn-default"><i
+                                        class="fas fa-minus"></i></button></span> <span><button id="plusEconomy"
+                                    class="btn btn-default"><i class="fas fa-plus"></i></button></span></p>
                     </div>
                 </div>
+                <div class="calculations">
+                    <div class="amount">
+                        <div class="left">
+                            <p>Subtotal</p>
+                        </div>
+                        <div class="right">
+                            <p>$ <span id="subTotal">250</span></p>
+                        </div>
+                    </div>
+
+                    <div class="amount">
+                        <div class="left">
+                            <p>Charge 10% VAT</p>
+                        </div>
+                        <div class="right">
+                            <p>$ <span id="tax">25</span> </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="amount">
+                        <div class="left">
+                            <h4>Total</h4>
+                        </div>
+                        <div class="right">
+                            <p>$<span id="finalTotal">275</span></p>
+                        </div>
+                    </div>
+                </div>
+                <button id="bookingBtn" class="btn-style">Book Now</button>
             </div>
-            <button class="btn-style">Book Now</button>
+            <div class="container-hidden">
+                <h3>Congratulations! Your tickets have been booked!</h3>
+            </div>
         </div>
-
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
@@ -140,6 +144,10 @@
                 economyTickets++;
                 updateAmount('inputEconomy', '', economyTickets, economyPrice);
                 updateTotal();
+            });
+            document.getElementById('bookingBtn').addEventListener('click', function () {
+                document.querySelector('.container-main').style.display = "none";
+                document.querySelector('.container-hidden').style.display = "block";
             });
             // Sub total calculation
             function updateTotal() {
