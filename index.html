@@ -124,27 +124,28 @@
 
             document.getElementById('minusFirstClass').addEventListener('click', function () {
                 if (firstClassTickets > 0) firstClassTickets--;
-                updateAmount('inputFirstClass', '', firstClassTickets, firstClassPrice);
+                updateAmount('inputFirstClass', firstClassTickets, firstClassPrice);
                 updateTotal();
 
             });
             document.getElementById('plusFirstClass').addEventListener('click', function () {
                 firstClassTickets++;
-                updateAmount('inputFirstClass', '', firstClassTickets, firstClassPrice)
+                updateAmount('inputFirstClass', firstClassTickets, firstClassPrice)
                 updateTotal();
             });
             //economy buttons event handler
             document.getElementById('minusEconomy').addEventListener('click', function () {
                 if (economyTickets > 0) economyTickets--;
-                updateAmount('inputEconomy', '', economyTickets, economyPrice);
+                updateAmount('inputEconomy', economyTickets, economyPrice);
                 updateTotal();
 
             });
             document.getElementById('plusEconomy').addEventListener('click', function () {
                 economyTickets++;
-                updateAmount('inputEconomy', '', economyTickets, economyPrice);
+                updateAmount('inputEconomy', economyTickets, economyPrice);
                 updateTotal();
             });
+            // booking button event handler
             document.getElementById('bookingBtn').addEventListener('click', function () {
                 document.querySelector('.container-main').style.display = "none";
                 document.querySelector('.container-hidden').style.display = "block";
@@ -155,7 +156,7 @@
                 document.getElementById('tax').innerText = firstClassTickets * firstClassPrice * .1 + economyTickets * economyPrice * .1;
                 document.getElementById('finalTotal').innerText = firstClassTickets * firstClassPrice + economyTickets * economyPrice + firstClassTickets * firstClassPrice * .1 + economyTickets * economyPrice * .1;
             }
-            function updateAmount(idInput, idAmount, value, price) {
+            function updateAmount(idInput, value, price) {
                 document.getElementById(idInput).value = value;
             }
 
